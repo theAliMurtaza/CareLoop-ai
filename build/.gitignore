@@ -1,0 +1,86 @@
+# Secrets and machine-specific configuration
+.env
+.env.*
+!.env.example
+.envrc
+*.private.json
+LOCAL-DEMO-ACCOUNTS.txt
+CLOUD-DEMO-ACCOUNTS.txt
+*.env
+*.key
+*.pem
+*.p12
+*.pfx
+
+# JavaScript dependencies and generated output
+node_modules/
+.next/
+out/
+dist/
+.test-dist/
+.turbo/
+.vercel/
+*.tsbuildinfo
+.npm/
+.npm-cache/
+next-swc/
+
+# Python environments and caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+.eggs/
+build/lib/
+build/bdist*/
+
+# Test output (keep test source and synthetic evaluation fixtures)
+coverage/
+.coverage
+.coverage.*
+htmlcov/
+playwright-report/
+test-results/
+blob-report/
+junit.xml
+
+# Logs and temporary files
+*.log
+*.log.*
+*.tmp
+*.temp
+*.pid
+*.pid.lock
+.cache/
+.tmp/
+
+# Local reports, backups, and service state
+uploads/
+backups/
+*.sqlite
+*.sqlite3
+*.sqlite-journal
+*.sqlite-wal
+*.sqlite-shm
+*.sqlite3-journal
+*.sqlite3-wal
+*.sqlite3-shm
+postgres_data/
+n8n_data/
+.n8n/
+
+# Local tooling and packaged artifacts
+/work/
+/outputs/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Keep package-lock.json, migrations, .env.example, workflow exports,
+# and evals/fixtures + aggregate evals/results under version control.

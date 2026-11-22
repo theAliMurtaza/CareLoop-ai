@@ -1,0 +1,73 @@
+name: CareLoop checks
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    env:
+      OMP_THREAD_LIMIT: "1"
+    services:
+      postgres:
+        image: pgvector/pgvector:pg16
+        env:
+          POSTGRES_USER: careloop
+          POSTGRES_DB: careloop
+          POSTGRES_PASSWORD: ci-ephemeral-only
+        ports: ["55432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U careloop"
+          --health-interval 10s --health-timeout 5s --health-retries 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: ai/pyproject.toml
+      - run: npm ci
+      - run: npm run setup:env
+      - name: Configure ephemeral CI database
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('api/.env')
+          lines=p.read_text().splitlines()
+          p.write_text('\n'.join('DATABASE_URL=postgresql://careloop:ci-ephemeral-only@127.0.0.1:55432/careloop' if x.startswith('DATABASE_URL=') else x for x in lines)+'\n')
+          PY
+      - run: npm run typecheck && npm test
+      - run: npm run test:integration --workspace @careloop/api
+        env:
+          RUN_INTEGRATION: "true"
+      - run: npm run build
+        env:
+          NEXT_TELEMETRY_DISABLED: "1"
+      - run: sudo apt-get update && sudo apt-get install -y tesseract-ocr tesseract-ocr-eng tesseract-ocr-urd fonts-dejavu-core
+      - run: pip install './ai[dev]'
+      - run: python -m mypy --config-file ai/pyproject.toml ai/app
+      - run: python -m pytest
+        working-directory: ai
+      - run: python evals/generate_fixtures.py && python evals/run.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: synthetic-evaluation-metrics
+          path: evals/results/*.json
+  compose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: node scripts/configure-local.mjs
+      - run: docker compose up -d --build --wait postgres ai api frontend
+      - run: node scripts/e2e.mjs
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:ui
+      - if: always()
+        run: docker compose down

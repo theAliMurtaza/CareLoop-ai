@@ -1,0 +1,16 @@
+{
+  "mode": "offline",
+  "transport": "http",
+  "reports": 40,
+  "photosIncluded": true,
+  "exactReportAccuracy": 0.975,
+  "valuePrecision": 1.0,
+  "valueRecall": 0.9915966386554622,
+  "guardrailCases": 34,
+  "guardrailCatchRate": 1.0,
+  "explanationCases": 32,
+  "faithfulness": 1.0,
+  "scope": "Synthetic fixed-format fixtures and adversarial suite; not clinical validation or evidence of general OCR accuracy.",
+  "benignCases": 6,
+  "benignRefusalRate": 0.0
+}

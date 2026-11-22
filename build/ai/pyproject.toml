@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=75,<81"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "careloop-ai"
+version = "0.1.0"
+description = "CareLoop grounded extraction and explanation service. Synthetic data only."
+requires-python = ">=3.11,<3.15"
+dependencies = [
+  "fastapi>=0.115,<1",
+  "uvicorn>=0.34,<1",
+  "pydantic>=2.10,<3",
+  "pydantic-settings>=2.7,<3",
+  "httpx>=0.28,<1",
+  "langgraph>=1,<2",
+  "pdfplumber>=0.11,<1",
+  "pytesseract>=0.3.13,<1",
+  "pillow>=11,<13",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.3,<9", "httpx>=0.28,<1", "mypy>=1.15,<2", "reportlab>=4,<5", "types-requests"]
+
+[tool.setuptools.packages.find]
+include = ["app*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+plugins = ["pydantic.mypy"]
+
+[[tool.mypy.overrides]]
+module = ["pytesseract", "pytesseract.*"]
+ignore_missing_imports = true

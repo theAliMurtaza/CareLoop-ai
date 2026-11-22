@@ -1,0 +1,32 @@
+{
+  "name": "careloop",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "api"
+  ],
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "scripts": {
+    "dev:frontend": "npm run dev --workspace @careloop/frontend",
+    "dev:api": "npm run dev --workspace @careloop/api",
+    "build": "npm run build --workspaces",
+    "typecheck": "npm run typecheck --workspaces",
+    "test": "npm run test --workspace @careloop/api",
+    "setup:env": "node scripts/configure-local.mjs",
+    "setup:deployment": "node scripts/configure-deployment.mjs",
+    "check:deployment": "node scripts/check-deployment.mjs",
+    "check:github": "node scripts/check-github.mjs",
+    "test:deployment": "node --test --test-isolation=none scripts/deployment-config.test.mjs",
+    "smoke": "node scripts/smoke.mjs",
+    "test:ui": "playwright test",
+    "test:e2e": "node scripts/e2e.mjs",
+    "format:check": "prettier --check api/src api/tests frontend/src scripts"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.65.1",
+    "prettier": "^3.10.1"
+  }
+}

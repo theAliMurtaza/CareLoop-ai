@@ -1,0 +1,956 @@
+[
+  {
+    "file": "synthetic-01.pdf",
+    "mime": "application/pdf",
+    "expected": [
+      {
+        "testCode": "glucose",
+        "value": 60,
+        "unit": "mg/dL",
+        "comparator": "="
+      },
+      {
+        "testCode": "hba1c",
+        "value": 4.0,
+        "unit": "%",
+        "comparator": "="
+      },
+      {
+        "testCode": "sodium",
+        "value": 130,
+        "unit": "mmol/L",
+        "comparator": "="
+      }
+    ]
+  },
+  {
+    "file": "synthetic-02.pdf",
+    "mime": "application/pdf",
+    "expected": [
+      {
+        "testCode": "glucose",
+        "value": 64,
+        "unit": "mg/dL",
+        "comparator": "="
+      },
+      {
+        "testCode": "hba1c",
+        "value": 4.1,
+        "unit": "%",
+        "comparator": "="
+      },
+      {
+        "testCode": "sodium",
+        "value": 131,
+        "unit": "mmol/L",
+        "comparator": "="
+      }
+    ]
+  },
+  {
+    "file": "synthetic-03.pdf",
+    "mime": "application/pdf",
+    "expected": [
+      {
+        "testCode": "glucose",
+        "value": 68,
+        "unit": "mg/dL",
+        "comparator": "="
+      },
+      {
+        "testCode": "hba1c",
+        "value": 4.2,
+        "unit": "%",
+        "comparator": "="
+      },
+      {
+        "testCode": "sodium",
+        "value": 132,
+        "unit": "mmol/L",
+        "comparator": "="
+      }
+    ]
+  },
+  {
+    "file": "synthetic-04.pdf",
+    "mime": "application/pdf",
+    "expected": [
+      {
+        "testCode": "glucose",
+        "value": 72,
+        "unit": "mg/dL",
+        "comparator": "="
+      },
+      {
+        "testCode": "hba1c",
+        "value": 4.3,
+        "unit": "%",
+        "comparator": "="
+      },
+      {
+        "testCode": "sodium",
+        "value": 133,
+        "unit": "mmol/L",
+        "comparator": "="
+      }
+    ]
+  },
+  {
+    "file": "synthetic-05.pdf",
+    "mime": "application/pdf",
+    "expected": [
+      {
+        "testCode": "glucose",
+        "value": 76,
+        "unit": "mg/dL",
+        "comparator": "="
+      },
+      {
+        "testCode": "hba1c",
+        "value": 4.4,
+        "unit": "%",
+        "comparator": "="
+      },
+      {
+        "testCode": "sodium",
+        "value": 134,
+        "unit": "mmol/L",
+        "comparator": "="
+      }
+    ]
+  },
+  {
+    "file": "synthetic-06.pdf",
+    "mime": "application/pdf",
+    "expected": [
+      {
+        "testCode": "glucose",
+        "value": 80,
+        "unit": "mg/dL",
+        "comparator": "="
+      },
+      {
+        "testCode": "hba1c",
+        "value": 4.5,
+        "unit": "%",
+        "comparator": "="
+      },
+      {
+        "testCode": "sodium",
+        "value": 135,
+        "unit": "mmol/L",
+        "comparator": "="
+      }
+    ]
+  },
+  {
+    "file": "synthetic-07.pdf",
+    "mime": "application/pdf",
+    "expected": [
+      {
+        "testCode": "glucose",
+        "value": 84,
+        "unit": "mg/dL",
+        "comparator": "="
+      },
+      {
+        "testCode": "hba1c",
+        "value": 4.6,
+        "unit": "%",
+        "comparator": "="
+      },
+      {
+        "testCode": "sodium",
+        "value": 136,
+        "unit": "mmol/L",
+        "comparator": "="
+      }
+    ]
+  },
+  {
+    "file": "synthetic-08.pdf",
+    "mime": "application/pdf",
+    "expected": [
+      {
+        "testCode": "glucose",
+        "value": 88,
+        "unit": "mg/dL",
+        "comparator": "="
+      },
+      {
+        "testCode": "hba1c",
+        "value": 4.7,
+        "unit": "%",
+        "comparator": "="
+      },
+      {
+        "testCode": "sodium",
+        "value": 137,
+        "unit": "mmol/L",
+        "comparator": "="
+      }
+    ]
+  },
+  {
+    "file": "synthetic-09.pdf",
+    "mime": "application/pdf",
+    "expected": [
+      {
+        "testCode": "glucose",
+        "value": 92,
+        "unit": "mg/dL",
+        "comparator": "="
+      },
+      {
+        "testCode": "hba1c",
+        "value": 4.8,
+        "unit": "%",
+        "comparator": "="
+      },
+      {
+        "testCode": "sodium",
+        "value": 138,
+        "unit": "mmol/L",
+        "comparator": "="
+      }
+    ]
+  },
+  {
+    "file": "synthetic-10.pdf",
+    "mime": "application/pdf",
+    "expected": [
+      {
+        "testCode": "glucose",
+        "value": 96,
+        "unit": "mg/dL",
+        "comparator": "="
+      },
+      {
+        "testCode": "hba1c",
+        "value": 4.9,
+        "unit": "%",
+        "comparator": "="
+      },
+      {
+        "testCode": "sodium",
+        "value": 139,
+        "unit": "mmol/L",
+        "comparator": "="
+      }
+    ]
+  },
+  {
+    "file": "synthetic-11.pdf",
+    "mime": "application/pdf",
+    "expected": [
+      {
+        "testCode": "glucose",
+        "value": 100,
+        "unit": "mg/dL",
+        "comparator": "="
+      },
+      {
+        "testCode": "hba1c",
+        "value": 5.0,
+        "unit": "%",
+        "comparator": "="
+      },
+      {
+        "testCode": "sodium",
+        "value": 140,
+        "unit": "mmol/L",
+        "comparator": "="
+      }
+    ]
+  },
+  {
+    "file": "synthetic-12.pdf",
+    "mime": "application/pdf",
+    "expected": [
+      {
+        "testCode": "glucose",
+        "value": 104,
+        "unit": "mg/dL",
+        "comparator": "="
+      },
+      {
+        "testCode": "hba1c",
+        "value": 5.1,
+        "unit": "%",
+        "comparator": "="
+      },
+      {
+        "testCode": "sodium",
+        "value": 141,
+        "unit": "mmol/L",
+        "comparator": "="
+      }
+    ]
+  },
+  {
+    "file": "synthetic-13.pdf",
+    "mime": "application/pdf",
+    "expected": [
+      {
+        "testCode": "glucose",
+        "value": 108,
+        "unit": "mg/dL",
+        "comparator": "="
+      },
+      {
+        "testCode": "hba1c",
+        "value": 5.2,
+        "unit": "%",
+        "comparator": "="
+      },
+      {
+        "testCode": "sodium",
+        "value": 142,
+        "unit": "mmol/L",
+        "comparator": "="
+      }
+    ]
+  },
+  {
+    "file": "synthetic-14.pdf",
+    "mime": "application/pdf",
+    "expected": [
+      {
+        "testCode": "glucose",
+        "value": 112,
+        "unit": "mg/dL",
+        "comparator": "="
+      },
+      {
+        "testCode": "hba1c",
+        "value": 5.3,
+        "unit": "%",
+        "comparator": "="
+      },
+      {
+        "testCode": "sodium",
+        "value": 143,
+        "unit": "mmol/L",
+        "comparator": "="
+      }
+    ]
+  },
+  {
+    "file": "synthetic-15.pdf",
+    "mime": "application/pdf",
+    "expected": [
+      {
+        "testCode": "glucose",
+        "value": 116,
+        "unit": "mg/dL",
+        "comparator": "="
+      },
+      {
+        "testCode": "hba1c",
+        "value": 5.4,
+        "unit": "%",
+        "comparator": "="
+      },
+      {
+        "testCode": "sodium",
+        "value": 144,
+        "unit": "mmol/L",
+        "comparator": "="
+      }
+    ]
+  },
+  {
+    "file": "synthetic-16.pdf",
+    "mime": "application/pdf",
+    "expected": [
+      {
+        "testCode": "glucose",
+        "value": 120,
+        "unit": "mg/dL",
+        "comparator": "="
+      },
+      {
+        "testCode": "hba1c",
+        "value": 5.5,
+        "unit": "%",
+        "comparator": "="
+      },
+      {
+        "testCode": "sodium",
+        "value": 145,
+        "unit": "mmol/L",
+        "comparator": "="
+      }
+    ]
+  },
+  {
+    "file": "synthetic-17.pdf",
+    "mime": "application/pdf",
+    "expected": [
+      {
+        "testCode": "glucose",
+        "value": 124,
+        "unit": "mg/dL",
+        "comparator": "="
+      },
+      {
+        "testCode": "hba1c",
+        "value": 5.6,
+        "unit": "%",
+        "comparator": "="
+      },
+      {
+        "testCode": "sodium",
+        "value": 146,
+        "unit": "mmol/L",
+        "comparator": "="
+      }
+    ]
+  },
+  {
+    "file": "synthetic-18.pdf",
+    "mime": "application/pdf",
+    "expected": [
+      {
+        "testCode": "glucose",
+        "value": 128,
+        "unit": "mg/dL",
+        "comparator": "="
+      },
+      {
+        "testCode": "hba1c",
+        "value": 5.7,
+        "unit": "%",
+        "comparator": "="
+      },
+      {
+        "testCode": "sodium",
+        "value": 147,
+        "unit": "mmol/L",
+        "comparator": "="
+      }
+    ]
+  },
+  {
+    "file": "synthetic-19.pdf",
+    "mime": "application/pdf",
+    "expected": [
+      {
+        "testCode": "glucose",
+        "value": 132,
+        "unit": "mg/dL",
+        "comparator": "="
+      },
+      {
+        "testCode": "hba1c",
+        "value": 5.8,
+        "unit": "%",
+        "comparator": "="
+      },
+      {
+        "testCode": "sodium",
+        "value": 148,
+        "unit": "mmol/L",
+        "comparator": "="
+      }
+    ]
+  },
+  {
+    "file": "synthetic-20.pdf",
+    "mime": "application/pdf",
+    "expected": [
+      {
+        "testCode": "glucose",
+        "value": 136,
+        "unit": "mg/dL",
+        "comparator": "="
+      },
+      {
+        "testCode": "hba1c",
+        "value": 5.9,
+        "unit": "%",
+        "comparator": "="
+      },
+      {
+        "testCode": "sodium",
+        "value": 149,
+        "unit": "mmol/L",
+        "comparator": "="
+      }
+    ]
+  },
+  {
+    "file": "synthetic-21.pdf",
+    "mime": "application/pdf",
+    "expected": [
+      {
+        "testCode": "glucose",
+        "value": 140,
+        "unit": "mg/dL",
+        "comparator": "="
+      },
+      {
+        "testCode": "hba1c",
+        "value": 6.0,
+        "unit": "%",
+        "comparator": "="
+      },
+      {
+        "testCode": "sodium",
+        "value": 130,
+        "unit": "mmol/L",
+        "comparator": "="
+      }
+    ]
+  },
+  {
+    "file": "synthetic-22.pdf",
+    "mime": "application/pdf",
+    "expected": [
+      {
+        "testCode": "glucose",
+        "value": 144,
+        "unit": "mg/dL",
+        "comparator": "="
+      },
+      {
+        "testCode": "hba1c",
+        "value": 6.1,
+        "unit": "%",
+        "comparator": "="
+      },
+      {
+        "testCode": "sodium",
+        "value": 131,
+        "unit": "mmol/L",
+        "comparator": "="
+      }
+    ]
+  },
+  {
+    "file": "synthetic-23.pdf",
+    "mime": "application/pdf",
+    "expected": [
+      {
+        "testCode": "glucose",
+        "value": 148,
+        "unit": "mg/dL",
+        "comparator": "="
+      },
+      {
+        "testCode": "hba1c",
+        "value": 6.2,
+        "unit": "%",
+        "comparator": "="
+      },
+      {
+        "testCode": "sodium",
+        "value": 132,
+        "unit": "mmol/L",
+        "comparator": "="
+      }
+    ]
+  },
+  {
+    "file": "synthetic-24.pdf",
+    "mime": "application/pdf",
+    "expected": [
+      {
+        "testCode": "glucose",
+        "value": 152,
+        "unit": "mg/dL",
+        "comparator": "="
+      },
+      {
+        "testCode": "hba1c",
+        "value": 6.3,
+        "unit": "%",
+        "comparator": "="
+      },
+      {
+        "testCode": "sodium",
+        "value": 133,
+        "unit": "mmol/L",
+        "comparator": "="
+      }
+    ]
+  },
+  {
+    "file": "synthetic-25.pdf",
+    "mime": "application/pdf",
+    "expected": [
+      {
+        "testCode": "glucose",
+        "value": 156,
+        "unit": "mg/dL",
+        "comparator": "="
+      },
+      {
+        "testCode": "hba1c",
+        "value": 6.4,
+        "unit": "%",
+        "comparator": "="
+      },
+      {
+        "testCode": "sodium",
+        "value": 134,
+        "unit": "mmol/L",
+        "comparator": "="
+      }
+    ]
+  },
+  {
+    "file": "synthetic-26.pdf",
+    "mime": "application/pdf",
+    "expected": [
+      {
+        "testCode": "glucose",
+        "value": 160,
+        "unit": "mg/dL",
+        "comparator": "="
+      },
+      {
+        "testCode": "hba1c",
+        "value": 6.5,
+        "unit": "%",
+        "comparator": "="
+      },
+      {
+        "testCode": "sodium",
+        "value": 135,
+        "unit": "mmol/L",
+        "comparator": "="
+      }
+    ]
+  },
+  {
+    "file": "synthetic-27.pdf",
+    "mime": "application/pdf",
+    "expected": [
+      {
+        "testCode": "glucose",
+        "value": 164,
+        "unit": "mg/dL",
+        "comparator": "="
+      },
+      {
+        "testCode": "hba1c",
+        "value": 6.6,
+        "unit": "%",
+        "comparator": "="
+      },
+      {
+        "testCode": "sodium",
+        "value": 136,
+        "unit": "mmol/L",
+        "comparator": "="
+      }
+    ]
+  },
+  {
+    "file": "synthetic-28.pdf",
+    "mime": "application/pdf",
+    "expected": [
+      {
+        "testCode": "glucose",
+        "value": 168,
+        "unit": "mg/dL",
+        "comparator": "="
+      },
+      {
+        "testCode": "hba1c",
+        "value": 6.7,
+        "unit": "%",
+        "comparator": "="
+      },
+      {
+        "testCode": "sodium",
+        "value": 137,
+        "unit": "mmol/L",
+        "comparator": "="
+      }
+    ]
+  },
+  {
+    "file": "synthetic-29.pdf",
+    "mime": "application/pdf",
+    "expected": [
+      {
+        "testCode": "glucose",
+        "value": 172,
+        "unit": "mg/dL",
+        "comparator": "="
+      },
+      {
+        "testCode": "hba1c",
+        "value": 6.8,
+        "unit": "%",
+        "comparator": "="
+      },
+      {
+        "testCode": "sodium",
+        "value": 138,
+        "unit": "mmol/L",
+        "comparator": "="
+      }
+    ]
+  },
+  {
+    "file": "synthetic-30.pdf",
+    "mime": "application/pdf",
+    "expected": [
+      {
+        "testCode": "glucose",
+        "value": 176,
+        "unit": "mg/dL",
+        "comparator": "="
+      },
+      {
+        "testCode": "hba1c",
+        "value": 6.9,
+        "unit": "%",
+        "comparator": "="
+      },
+      {
+        "testCode": "sodium",
+        "value": 139,
+        "unit": "mmol/L",
+        "comparator": "="
+      }
+    ]
+  },
+  {
+    "file": "synthetic-31.pdf",
+    "mime": "application/pdf",
+    "expected": [
+      {
+        "testCode": "hba1c",
+        "value": 7.0,
+        "unit": "%",
+        "comparator": "="
+      },
+      {
+        "testCode": "sodium",
+        "value": 140,
+        "unit": "mmol/L",
+        "comparator": "="
+      }
+    ]
+  },
+  {
+    "file": "synthetic-32.pdf",
+    "mime": "application/pdf",
+    "expected": [
+      {
+        "testCode": "glucose",
+        "value": 184,
+        "unit": "mg/dL",
+        "comparator": ">"
+      },
+      {
+        "testCode": "hba1c",
+        "value": 7.1,
+        "unit": "%",
+        "comparator": "="
+      },
+      {
+        "testCode": "sodium",
+        "value": 141,
+        "unit": "mmol/L",
+        "comparator": "="
+      }
+    ]
+  },
+  {
+    "file": "synthetic-33.png",
+    "mime": "image/png",
+    "expected": [
+      {
+        "testCode": "glucose",
+        "value": 188,
+        "unit": "mg/dL",
+        "comparator": "="
+      },
+      {
+        "testCode": "hba1c",
+        "value": 7.2,
+        "unit": "%",
+        "comparator": "="
+      },
+      {
+        "testCode": "sodium",
+        "value": 142,
+        "unit": "mmol/L",
+        "comparator": "="
+      }
+    ]
+  },
+  {
+    "file": "synthetic-34.png",
+    "mime": "image/png",
+    "expected": [
+      {
+        "testCode": "glucose",
+        "value": 192,
+        "unit": "mg/dL",
+        "comparator": "="
+      },
+      {
+        "testCode": "hba1c",
+        "value": 7.3,
+        "unit": "%",
+        "comparator": "="
+      },
+      {
+        "testCode": "sodium",
+        "value": 143,
+        "unit": "mmol/L",
+        "comparator": "="
+      }
+    ]
+  },
+  {
+    "file": "synthetic-35.png",
+    "mime": "image/png",
+    "expected": [
+      {
+        "testCode": "glucose",
+        "value": 196,
+        "unit": "mg/dL",
+        "comparator": "="
+      },
+      {
+        "testCode": "hba1c",
+        "value": 7.4,
+        "unit": "%",
+        "comparator": "="
+      },
+      {
+        "testCode": "sodium",
+        "value": 144,
+        "unit": "mmol/L",
+        "comparator": "="
+      }
+    ]
+  },
+  {
+    "file": "synthetic-36.png",
+    "mime": "image/png",
+    "expected": [
+      {
+        "testCode": "glucose",
+        "value": 200,
+        "unit": "mg/dL",
+        "comparator": "="
+      },
+      {
+        "testCode": "hba1c",
+        "value": 7.5,
+        "unit": "%",
+        "comparator": "="
+      },
+      {
+        "testCode": "sodium",
+        "value": 145,
+        "unit": "mmol/L",
+        "comparator": "="
+      }
+    ]
+  },
+  {
+    "file": "synthetic-37.png",
+    "mime": "image/png",
+    "expected": [
+      {
+        "testCode": "glucose",
+        "value": 204,
+        "unit": "mg/dL",
+        "comparator": "="
+      },
+      {
+        "testCode": "hba1c",
+        "value": 7.6,
+        "unit": "%",
+        "comparator": "="
+      },
+      {
+        "testCode": "sodium",
+        "value": 146,
+        "unit": "mmol/L",
+        "comparator": "="
+      }
+    ]
+  },
+  {
+    "file": "synthetic-38.png",
+    "mime": "image/png",
+    "expected": [
+      {
+        "testCode": "glucose",
+        "value": 208,
+        "unit": "mg/dL",
+        "comparator": "="
+      },
+      {
+        "testCode": "hba1c",
+        "value": 7.7,
+        "unit": "%",
+        "comparator": "="
+      },
+      {
+        "testCode": "sodium",
+        "value": 147,
+        "unit": "mmol/L",
+        "comparator": "="
+      }
+    ]
+  },
+  {
+    "file": "synthetic-39.png",
+    "mime": "image/png",
+    "expected": [
+      {
+        "testCode": "glucose",
+        "value": 212,
+        "unit": "mg/dL",
+        "comparator": "="
+      },
+      {
+        "testCode": "hba1c",
+        "value": 7.8,
+        "unit": "%",
+        "comparator": "="
+      },
+      {
+        "testCode": "sodium",
+        "value": 148,
+        "unit": "mmol/L",
+        "comparator": "="
+      }
+    ]
+  },
+  {
+    "file": "synthetic-40.png",
+    "mime": "image/png",
+    "expected": [
+      {
+        "testCode": "glucose",
+        "value": 216,
+        "unit": "mg/dL",
+        "comparator": "="
+      },
+      {
+        "testCode": "hba1c",
+        "value": 7.9,
+        "unit": "%",
+        "comparator": "="
+      },
+      {
+        "testCode": "sodium",
+        "value": 149,
+        "unit": "mmol/L",
+        "comparator": "="
+      }
+    ]
+  }
+]

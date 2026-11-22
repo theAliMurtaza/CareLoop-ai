@@ -1,0 +1,16 @@
+# Git is initialized above the CareLoop application in build/.
+# Never stage local caches, virtual environments, credentials, or build logs.
+/work/
+/outputs/
+.env
+.env.*
+!.env.example
+*.private.json
+LOCAL-DEMO-ACCOUNTS.txt
+CLOUD-DEMO-ACCOUNTS.txt
+*.env
+*.key
+*.pem
+.vercel/
+
+# Application-specific rules live in build/.gitignore.

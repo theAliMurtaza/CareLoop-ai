@@ -1,0 +1,66 @@
+# Repository root is D:/CareLoop; application files live in build/.
+# Free demo services sleep. Review plan limits before clicking Deploy.
+# Supply secrets from work/deployment; do not use Render generateValue for
+# CareLoop's hex-only keys. Actual deployment is performed by the owner.
+services:
+  - type: web
+    name: careloop-ai
+    runtime: docker
+    plan: free
+    rootDir: build
+    dockerfilePath: ai/Dockerfile
+    dockerContext: .
+    healthCheckPath: /health
+    autoDeployTrigger: "off"
+    envVars:
+      - key: PORT
+        value: "8000"
+      - key: SYNTHETIC_DATA_ONLY
+        value: "true"
+      - key: AI_MODE
+        sync: false
+      - key: AI_SERVICE_TOKEN
+        sync: false
+      - key: OMP_THREAD_LIMIT
+        value: "1"
+      - key: LANGFUSE_ENABLED
+        value: "false"
+  - type: web
+    name: careloop-api
+    runtime: docker
+    plan: free
+    rootDir: build
+    dockerfilePath: api/Dockerfile
+    dockerContext: .
+    dockerCommand: sh -c 'node api/dist/db/cli.js --seed && exec node api/dist/server.js'
+    healthCheckPath: /ready
+    autoDeployTrigger: "off"
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: "4000"
+      - key: SYNTHETIC_DATA_ONLY
+        value: "true"
+      - key: COOKIE_SECURE
+        value: "true"
+      - key: DATABASE_URL
+        sync: false
+      - key: CORS_ORIGIN
+        sync: false
+      - key: AI_BASE_URL
+        sync: false
+      - key: FIELD_ENCRYPTION_KEY
+        sync: false
+      - key: EMAIL_LOOKUP_KEY
+        sync: false
+      - key: JWT_ACCESS_SECRET
+        sync: false
+      - key: AI_SERVICE_TOKEN
+        sync: false
+      - key: AUTOMATION_TOKEN
+        sync: false
+      - key: AUTOMATION_WEBHOOK_SECRET
+        sync: false
+      - key: SEED_PASSWORD
+        sync: false
