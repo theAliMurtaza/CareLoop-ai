@@ -1,0 +1,2 @@
+# Shell entrypoints must retain Unix newlines on Windows checkouts.
+*.sh text eol=lf

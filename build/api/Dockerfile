@@ -14,6 +14,7 @@ COPY --from=build --chown=node:node /app/node_modules ./node_modules
 COPY --from=build --chown=node:node /app/api/package.json ./api/package.json
 COPY --from=build --chown=node:node /app/api/dist ./api/dist
 COPY --from=build --chown=node:node /app/api/drizzle ./api/drizzle
+COPY --chown=node:node api/start.sh ./api/start.sh
 USER node
 EXPOSE 4000
-CMD ["node", "api/dist/server.js"]
+CMD ["sh", "api/start.sh"]

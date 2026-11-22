@@ -1,0 +1,2 @@
+# Also applies when build/ is exported as a standalone repository.
+*.sh text eol=lf

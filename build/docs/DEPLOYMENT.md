@@ -44,7 +44,7 @@ The Docker image includes PDF extraction and Tesseract English/Urdu. Authenticat
 - Set `CORS_ORIGIN=https://your-frontend.example` and `COOKIE_SECURE=true`.
 - Set `SEED_PASSWORD` only for the fictional demo seed; retain it privately.
 
-Run `node api/dist/db/cli.js --seed` once in a trusted deployment command/shell. Alternatively, use this Docker start command for the single-instance demo: `sh -c 'node api/dist/db/cli.js --seed && exec node api/dist/server.js'`. Migrations and seeds are idempotent; do not run competing migration commands across multiple replicas. Native migration alternative: build the API locally, set its environment to the hosted synthetic database, and run `npm run db:seed --workspace @careloop/api`.
+Leave Render's **Docker Command empty**. The image's default `sh api/start.sh` applies migrations and seeds, then starts the server only after successful setup. Clear any previously entered `sh -c ...` command override before redeploying the updated image. Migrations and seeds are idempotent; do not run competing migration commands across multiple replicas. Native migration alternative: build the API locally, set its environment to the hosted synthetic database, and run `npm run db:seed --workspace @careloop/api`.
 
 The worker runs inside the API process. Sleeping/stopped API services delay jobs. Stale claims become eligible for recovery after ten minutes. Production high-volume queues, malware scanning, managed secret rotation, object storage, and comprehensive clinical review are future infrastructure work.
 

@@ -139,11 +139,7 @@ Create a second Web Service from the same repository:
 | Health Check Path | `/ready` |
 | Instances | One |
 
-Set Docker Command to:
-
-```sh
-sh -c 'node api/dist/db/cli.js --seed && exec node api/dist/server.js'
-```
+Leave **Docker Command empty**. The image runs `sh api/start.sh`, which applies migrations/seeds and then starts the API only if setup succeeds. If you entered an older `sh -c ...` override, clear that existing Render setting before redeploying the updated image. Removing the override from `render.yaml` alone may not clear an existing dashboard setting. No separate Build Command or Start Command is needed with the Docker runtime.
 
 Import `work/deployment/api.env`. It includes production mode, secure cookies, database URI, matching AI service token, encryption/signing keys, automation credentials, and the fictional seed password. Confirm `DATABASE_URL` and `AI_BASE_URL` now contain real values. `CORS_ORIGIN` may temporarily remain the `.invalid` placeholder until Vercel assigns a URL; browser mutations will not work until step 7 completes.
 

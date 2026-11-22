@@ -32,7 +32,6 @@ services:
     rootDir: build
     dockerfilePath: api/Dockerfile
     dockerContext: .
-    dockerCommand: sh -c 'node api/dist/db/cli.js --seed && exec node api/dist/server.js'
     healthCheckPath: /ready
     autoDeployTrigger: "off"
     envVars:
