@@ -72,13 +72,13 @@ export function AuthScreen({ register = false }: { register?: boolean }) {
           <form onSubmit={(event) => void submit(event)} className="cl-form">
             {register && (
               <label>
-                {c("Display name (fictional)", "نام (فرضی)")}
+                {c("Full name", "پورا نام")}
                 <input
                   required
                   maxLength={80}
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  autoComplete="nickname"
+                  autoComplete="name"
                 />
               </label>
             )}
@@ -90,7 +90,7 @@ export function AuthScreen({ register = false }: { register?: boolean }) {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="sarah@example.test"
+                placeholder="name@example.com"
                 autoComplete="username"
               />
             </label>
@@ -110,8 +110,8 @@ export function AuthScreen({ register = false }: { register?: boolean }) {
               <label className="cl-checkbox">
                 <input type="checkbox" required />
                 {c(
-                  "I will use fictional names, @example.test email addresses, and synthetic reports only.",
-                  "میں صرف فرضی نام، @example.test ای میل اور فرضی رپورٹس استعمال کروں گا۔",
+                  "I agree to CareLoop's terms of service and patient privacy policy.",
+                  "میں CareLoop کی شرائط اور مریض کی رازداری کی پالیسی سے متفق ہوں۔",
                 )}
               </label>
             )}
@@ -120,7 +120,7 @@ export function AuthScreen({ register = false }: { register?: boolean }) {
               {busy
                 ? c("Please wait…", "انتظار کریں…")
                 : register
-                  ? c("Create demo account", "نمونہ اکاؤنٹ بنائیں")
+                  ? c("Create account", "اکاؤنٹ بنائیں")
                   : c("Sign in", "سائن ان")}
             </button>
           </form>

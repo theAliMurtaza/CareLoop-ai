@@ -126,15 +126,9 @@ export function authRouter(pool: pg.Pool, config: Config): Router {
     const body = login
       .extend({
         displayName: z.string().trim().min(1).max(80),
-        synthetic: z.literal(true),
+        synthetic: z.boolean().default(false),
       })
       .parse(req.body);
-    if (!/@(?:example|careloop)\.test$/i.test(body.email))
-      throw new HttpError(
-        400,
-        "SYNTHETIC_ONLY",
-        "Use a fictional @example.test email for this demonstration.",
-      );
     const user = await transaction(pool, async (db) => {
       const id = randomUUID();
       const u = (

@@ -13,6 +13,8 @@ import {
   ShieldCheck,
   LoaderCircle,
   Trash2,
+  AlertTriangle,
+  CheckCircle2,
 } from "lucide-react";
 import { api, type Report, type ReportDetail as Detail } from "@/lib/api";
 import { useAuth } from "@/components/auth-provider";
@@ -486,6 +488,86 @@ export function ReportDetail({ id }: { id: string }) {
                   )}
                 </p>
               </div>
+              {(() => {
+                const abnormalValues = report.values.filter(
+                  (v) =>
+                    v.status &&
+                    v.status !== "normal" &&
+                    v.status !== "unclassified",
+                );
+                if (abnormalValues.length > 0) {
+                  return (
+                    <div
+                      className="cl-notice"
+                      style={{
+                        backgroundColor: "rgba(245, 158, 11, 0.1)",
+                        borderInlineStart: "4px solid #d97706",
+                        marginBottom: "1rem",
+                        padding: "0.85rem 1rem",
+                        borderRadius: "8px",
+                      }}
+                    >
+                      <AlertTriangle
+                        size={22}
+                        style={{ color: "#d97706", flexShrink: 0 }}
+                      />
+                      <div>
+                        <strong style={{ color: "#92400e", display: "block" }}>
+                          {c(
+                            `${abnormalValues.length} result${abnormalValues.length > 1 ? "s" : ""} outside reference range`,
+                            `${abnormalValues.length} نتیجہ معمول کی حدود سے باہر`,
+                          )}
+                        </strong>
+                        <span style={{ fontSize: "0.9rem", color: "#78350f" }}>
+                          {c("Pay particular attention to: ", "خاص توجہ دیں: ")}
+                          <strong>
+                            {abnormalValues
+                              .map(
+                                (v) =>
+                                  `${v.label} (${v.value} ${v.unit} · ${v.status.toUpperCase()})`,
+                              )
+                              .join(", ")}
+                          </strong>
+                        </span>
+                      </div>
+                    </div>
+                  );
+                }
+                if (report.values.length > 0) {
+                  return (
+                    <div
+                      className="cl-notice"
+                      style={{
+                        backgroundColor: "rgba(16, 185, 129, 0.1)",
+                        borderInlineStart: "4px solid #059669",
+                        marginBottom: "1rem",
+                        padding: "0.85rem 1rem",
+                        borderRadius: "8px",
+                      }}
+                    >
+                      <CheckCircle2
+                        size={22}
+                        style={{ color: "#059669", flexShrink: 0 }}
+                      />
+                      <div>
+                        <strong style={{ color: "#065f46", display: "block" }}>
+                          {c(
+                            "All results within range",
+                            "تمام نتائج معمول کے مطابق ہیں",
+                          )}
+                        </strong>
+                        <span style={{ fontSize: "0.9rem", color: "#047857" }}>
+                          {c(
+                            "All measured tests fall within their standard reference intervals.",
+                            "تمام نتائج مقررہ حوالہ جاتی حدود کے اندر ہیں۔",
+                          )}
+                        </span>
+                      </div>
+                    </div>
+                  );
+                }
+                return null;
+              })()}
               {!report.values.length ? (
                 <Empty
                   title={c(
@@ -501,22 +583,32 @@ export function ReportDetail({ id }: { id: string }) {
                   </p>
                 </Empty>
               ) : (
-                report.values.map((value) => (
-                  <article className="cl-result" key={value.id}>
-                    <div className="cl-result-top">
-                      <div>
-                        <h3>{value.label}</h3>
-                        <p className="cl-result-number" dir="ltr">
-                          {value.value} <small>{value.unit}</small>
-                        </p>
+                [...report.values]
+                  .sort((a, b) => {
+                    const weight = (s: string) => {
+                      if (s === "critical") return 4;
+                      if (s === "low" || s === "high") return 3;
+                      if (s === "borderline") return 2;
+                      return 1;
+                    };
+                    return weight(b.status) - weight(a.status);
+                  })
+                  .map((value) => (
+                    <article className="cl-result" key={value.id}>
+                      <div className="cl-result-top">
+                        <div>
+                          <h3>{value.label}</h3>
+                          <p className="cl-result-number" dir="ltr">
+                            {value.value} <small>{value.unit}</small>
+                          </p>
+                        </div>
+                        <StatusBadge status={value.status} />
                       </div>
-                      <StatusBadge status={value.status} />
-                    </div>
-                    <RangeBar result={value} />
-                    <details>
-                      <summary>
-                        {c("Understand this result", "یہ نتیجہ سمجھیں")}
-                      </summary>
+                      <RangeBar result={value} />
+                      <details open={value.status !== "normal"}>
+                        <summary>
+                          {c("Understand this result", "یہ نتیجہ سمجھیں")}
+                        </summary>
                       <p>{value.reason}</p>
                       <p>
                         <strong>

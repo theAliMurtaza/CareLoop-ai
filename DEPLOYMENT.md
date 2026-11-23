@@ -174,8 +174,9 @@ Vercel Hobby is for personal/non-commercial use. Its default request-body limit 
 Patient reports and clinic queue creation work without n8n, but scheduled inbox notifications require it. In Render choose New > Web Service > Existing Image:
 
 ```text
-docker.n8n.io/n8nio/n8n:2.48.6
+docker.io/n8nio/n8n:2.48.6
 ```
+(or simply `n8nio/n8n:2.48.6`). Do not use `docker.n8n.io/` as Render's validator does not accept redirect proxies without registry credentials.
 
 Use an always-on plan with enough memory, and attach a persistent disk mounted at **`/home/node`**, initially 1 GB. Persistent disks require a paid service. Use health path `/healthz`. Do not run SQLite-based n8n on ephemeral storage. [Render's n8n instructions](https://render.com/docs/deploy-n8n).
 
