@@ -32,17 +32,43 @@ async function ai(
   path: string,
   body: unknown,
 ): Promise<unknown> {
-  const response = await fetch(`${config.AI_BASE_URL}${path}`, {
-    method: "POST",
-    headers: {
-      "content-type": "application/json",
-      authorization: `Bearer ${config.AI_SERVICE_TOKEN}`,
-    },
-    body: JSON.stringify(body),
-    signal: AbortSignal.timeout(90_000),
-  });
-  if (!response.ok) throw new Error("AI_UNAVAILABLE");
-  return response.json();
+  const baseUrl = config.AI_BASE_URL.replace(/\/+$/, "");
+  const normalizedPath = path.startsWith("/") ? path : `/${path}`;
+  const url = `${baseUrl}${normalizedPath}`;
+
+  let lastError: unknown = null;
+  for (let attempt = 1; attempt <= 3; attempt++) {
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          authorization: `Bearer ${config.AI_SERVICE_TOKEN}`,
+        },
+        body: JSON.stringify(body),
+        signal: AbortSignal.timeout(90_000),
+      });
+      if (response.ok) {
+        return await response.json();
+      }
+      const errBody = await response.text().catch(() => "");
+      console.warn(
+        `AI service returned status ${response.status} on attempt ${attempt}/3: ${errBody}`,
+      );
+      if (response.status === 401 || response.status === 422) {
+        throw new Error(`AI_REJECTED_${response.status}`);
+      }
+      lastError = new Error(`AI_STATUS_${response.status}`);
+    } catch (e: any) {
+      if (e?.message?.startsWith("AI_REJECTED_")) throw e;
+      lastError = e;
+      console.warn(`AI request to ${url} failed on attempt ${attempt}/3:`, e?.message || e);
+    }
+    if (attempt < 3) {
+      await new Promise((r) => setTimeout(r, 3000));
+    }
+  }
+  throw lastError ?? new Error("AI_UNAVAILABLE");
 }
 export async function processOne(
   pool: pg.Pool,
@@ -222,7 +248,8 @@ export async function processOne(
         ],
       );
     });
-  } catch {
+  } catch (err) {
+    console.error(`CareLoop worker failed to process report ${report.id}:`, err);
     await transaction(pool, async (db) => {
       await audit(
         db,

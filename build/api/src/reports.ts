@@ -309,7 +309,8 @@ export function reportsRouter(pool: pg.Pool, config: Config): Router {
       body.locale,
       body.message,
     );
-    const response = await fetch(`${config.AI_BASE_URL}/chat`, {
+    const baseUrl = config.AI_BASE_URL.replace(/\/+$/, "");
+    const response = await fetch(`${baseUrl}/chat`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
